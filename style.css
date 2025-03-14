@@ -1,0 +1,87 @@
+:root{
+    --temp: white;
+    --primary-color: rgb(41, 40, 40);
+    --sec-color: gray;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: var(--temp);
+    color: (--temp);
+}
+
+.dark-mode{
+    background-color: var(--primary-color);
+    color: var(--temp);
+}
+
+.main{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.chat{
+    margin-top: 10px;
+    border: 2px solid black;
+    width: 50vw;
+    height: 70vh;
+    background-color: var(--primary-color);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.intro-msg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+.input{
+    border: 2px solid black;
+    margin: 12px;
+    width: 50vw;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-color);
+}
+
+input{
+    background-color: var(--sec-color);
+    border: 2px solid gray;
+    margin-left: 10px;
+    width: 80%;
+    height: 30px;
+    color: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.enter{
+    background-color: var(--sec-color);
+    border: 2px solid gray;
+    padding: 12px;
+}
+
+.btn{
+    background-color: var(--sec-color);
+    padding: 12px;
+    border: 2px solid gray;
+    width: 20px;
+}
+
+.p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
