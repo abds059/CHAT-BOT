@@ -83,12 +83,16 @@ mode.innerHTML = `<img src="./ASSETS/brightness.png" alt="Light Mode" width="20p
 mode.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
 
+    let para = document.querySelector(".intro-msg p");
+
     if (document.body.classList.contains("dark-mode")) {
         localStorage.setItem("theme", "dark");
         mode.innerHTML = `<img src="./ASSETS/crescent.png" alt="Dark Mode" width="20px">`;
+        if (para) para.style.color = "white"; 
     } else {
         localStorage.setItem("theme", "light");
         mode.innerHTML = `<img src="./ASSETS/brightness.png" alt="Light Mode" width="20px">`;
+        if (para) para.style.color = "black"; 
     }
 });
 
