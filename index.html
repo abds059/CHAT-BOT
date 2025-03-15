@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHAT-GPT</title>
+    <title>CHAT-BOT</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,8 +12,10 @@
     <div class="main">
         <div class="chat"></div>
         <div class="input">
-            <input type="text" placeholder="Type something here">
-            <button class="enter"></button>
+            <input type="text" placeholder="Type something here" id="prompt">
+            <button class="enter">
+                <img src="./ASSETS/send-message.png" alt="Send" width="20px">
+            </button>
             <button class="btn" id="mode-toggle"></button>
             <button class="btn" id="delete-btn"></button>
         </div>
