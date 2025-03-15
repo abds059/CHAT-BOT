@@ -28,11 +28,9 @@ body{
 }
 
 .chat{
-    margin-top: 10px;
-    border: 2px solid black;
+    margin-top: 20px;
     width: 50vw;
     height: 70vh;
-    background-color: var(--primary-color);
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -46,42 +44,267 @@ body{
 }
 
 .input{
-    border: 2px solid black;
     margin: 12px;
     width: 50vw;
     height: 20vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--primary-color);
+    position: relative;
 }
 
 input{
     background-color: var(--sec-color);
     border: 2px solid gray;
+    border-radius: 12px;
     margin-left: 10px;
     width: 80%;
-    height: 30px;
-    color: white;
+    height: 30%;
+    color: var(--temp);
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-.enter{
+#prompt {
+    width: 80%;
+    padding-right: 40px; 
+    height: 35px;
+    border-radius: 12px;
     background-color: var(--sec-color);
     border: 2px solid gray;
-    padding: 12px;
+    color: white;
+    padding-left: 10px;
+}
+
+.enter {
+    position: absolute;
+    right: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.enter img {
+    width: 22px;
+    height: 22px;
+    pointer-events: none;
+}
+
+/* Show enter button only when user types */
+#prompt:focus + .enter,
+#prompt:not(:placeholder-shown) + .enter {
+    opacity: 1;
 }
 
 .btn{
     background-color: var(--sec-color);
-    padding: 12px;
+    height: 30%;
+    width: 5%;
     border: 2px solid gray;
+    border: 2px solid gray;
+    border-radius: 10px;
+}
+
+.btn img {
     width: 20px;
+    height: 20px;
+    pointer-events: none;
 }
 
 .p{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.user-prompt {
+    align-self: flex-end;
+    max-width: 60%; 
+    font-size: 14px;
+    color: var(--temp);
+    background-color: #0078ff;
+    padding: 10px 15px;
+    margin: 5px 10px;
+    border-radius: 15px;
+    word-wrap: break-word;
+    display: inline-block;
+    text-align: left;
+}
+
+.bot-response {
+    align-self: flex-start;
+    max-width: 70%;
+    font-size: 12px;
+    color: white;
+    background-color: gray;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    word-wrap: break-word;
+}
+
+/* Api key popup container */
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+/* Light Mode */
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+    color: black;
+}
+
+/* Dark Mode */
+.dark-mode .popup-content {
+    background: #222;
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Input Styling */
+.popup-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+    color: black;
+}
+
+/* Dark Mode Input */
+.dark-mode .popup-content input {
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+}
+
+/* Button Styling */
+.popup-content button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+/* Button Hover Effect */
+.popup-content button:hover {
+    background: white;
+    color: #007bff;
+}
+
+/* Dark Mode Button */
+.dark-mode .popup-content button {
+    background: #0056b3;
+    border: 2px solid #0056b3;
+}
+
+/* Dark Mode Button Hover */
+.dark-mode .popup-content button:hover {
+    background: #222;
+    color: #007bff;
+}
+
+/* Link Styling */
+.popup-content a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Dark Mode Link */
+.dark-mode .popup-content a {
+    color: #4da3ff;
+}
+
+
+/*Small Devices (Phones, up to 600px) */
+@media screen and (max-width: 600px) {
+    .popup-content {
+        max-width: 90%;
+        padding: 15px;
+    }
+    .popup-content h2 {
+        font-size: 18px;
+    }
+    .popup-content input {
+        font-size: 14px;
+    }
+    .popup-content button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .chat, .input {
+        width: 90vw;
+        height: 60vh;
+    }
+
+    #prompt {
+        width: 75%;
+        height: 30px;
+    }
+
+    .btn {
+        width: 10%;
+        height: 30px;
+    }
+}
+
+/* Medium Devices (Tablets, 600px to 900px) */
+@media screen and (min-width: 600px) and (max-width: 900px) {
+    .chat, .input {
+        width: 70vw;
+        height: 65vh;
+    }
+
+    #prompt {
+        width: 80%;
+    }
+
+    .btn {
+        width: 8%;
+        height: 8%;
+    }
+}
+
+/* Large Devices (Laptops, Desktops, 900px and above) */
+@media screen and (min-width: 900px) {
+    .chat {
+        width: 50vw;
+        height: 70vh;
+    }
+
+    .input {
+        width: 50vw;
+        height: 20vh;
+    }
+
+    #prompt {
+        width: 80%;
+        height: 35px;
+    }
 }
